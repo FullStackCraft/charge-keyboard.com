@@ -1,0 +1,25 @@
+{
+  "name": "charge-keyboard-splash-page",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "node-mailer": "^0.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-app-env start",
+    "build": "react-app-env build",
+    "test": "react-app-env test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-app-env": "^1.2.2"
+  }
+}
