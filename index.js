@@ -56,4 +56,4 @@ app.post('/email', (req, res) => {
 app.use(express.static('./build'));
 
 // listening ports - reverse proxyed from nginx nlp-champs.com
-oServer.listen(8085); // chrisfrew.in productions - charge-keyboard.com is fixed at 8085
+oServer.listen(8086); // chrisfrew.in productions - charge-keyboard.com is fixed at 8085
