@@ -100,7 +100,7 @@ class App extends Component {
           </div>
         </div>
         <div className="title">
-          <h1><span className="neon">AAAAAAAA</span><br />The<br />world's<br />first<br />keyboard<br />that<br />charges itself<br />while<br />you<br />type.</h1><br />Interested?<br />Leave your email.<br/>We'll email you only once:<br />when we launch.<br /><br />
+          <h1><span className="neon">Charge.</span><br />The<br />world's<br />first<br />keyboard<br />that<br />charges itself<br />while<br />you<br />type.</h1><br />Interested?<br />Leave your email.<br/>We'll email you only once:<br />when we launch.<br /><br />
           <div className="wrapper">
             <form onKeyDown={this.handleKeyDown} onSubmit={this.handleSubmit}>
               <div className="group"><input disabled={this.state.bEmailFieldsDisabled} type="text" required="required" placeholder={this.state.sEmailPlaceholder} name="sEmail" autoComplete="true" onChange={this.handleChange} value={this.state.sEmail}/><span className="highlight" /><span className="bar" /></div>
