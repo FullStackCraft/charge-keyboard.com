@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 
-// external library requires()
+// external library requires() more
 const axios = require('axios');
 const validator = require("email-validator");
 
