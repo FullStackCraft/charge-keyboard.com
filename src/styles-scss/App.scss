@@ -443,3 +443,40 @@ label {
     }
   }
 }
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.neon {
+  // font-family: neon;
+  color: #6afa41;
+  // font-size: 9vw;
+  // line-height: 9vw;
+  text-shadow: 0 0 1vw #73f40a;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #5af915, 0 0 3vw #5af915, 0 0 10vw #5af915, 0 0 10vw #5af915, 0 0 .4vw #ccfe28, .5vw .5vw .1vw #618014;
+    color: #ccfe28;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #45800b, 0 0 1.5vw #45800b, 0 0 5vw #45800b, 0 0 5vw #45800b, 0 0 .2vw #45800b, .5vw .5vw .1vw #1c400a;
+    color: #328014;
+  }
+}

@@ -24,7 +24,7 @@ let oTransporter = nodemailer.createTransport({
 });
 let oMailOptions = {
   from: 'frewin.christopher@gmail.com', // sender address
-  to: 'frewin.christopher@gmail.com, dervishi.de@gmail.com, benjaminpetroski@gmail.com' // list of receivers
+  to: 'frewin.christopher@gmail.com' // list of receivers
 };
 
 // oBodyParser to get posts from $.ajax
@@ -35,7 +35,7 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 
 app.post('/email', (req, res) => {
   console.log(req.body);
-  oMailOptions.subject = 'Charge Keyboard - New email interest from the Charge Keyboard Homepage message box!'; // Subject line
+  oMailOptions.subject = 'Charge Keyboard - New email sign up from the Charge Keyboard homepage!'; // Subject line
   oMailOptions.html = "Email: " + req.body.sEmail; // plain text body
   console.log(oMailOptions);
   oTransporter.sendMail(oMailOptions, function (err, info) {

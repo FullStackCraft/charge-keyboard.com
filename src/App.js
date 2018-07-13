@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 
 const axios = require('axios');
+const validator = require("email-validator");
 
 class App extends Component {
   constructor() {
@@ -9,6 +10,9 @@ class App extends Component {
     super();
     this.state = {
       sEmail: '',
+      sSubmitButtonText: 'submit',
+      sEmailPlaceholder:'your_email@email.com',
+      bEmailFieldsDisabled: false,
       sKey1Class: 'btn2',
       sKey2Class: 'btn2',
       sKey3Class: 'btn2',
@@ -50,13 +54,19 @@ class App extends Component {
   }
   submit() {
     console.log(this.state.sEmail);
+    if (!validator.validate(this.state.sEmail)) {
+      this.setState({sEmail: '', sEmailPlaceholder: 'Invalid email format!', sSubmitButtonText: 'try again'});
+      return;
+    }
     axios.post(process.env.REACT_APP_ROOT_URL + '/email', {
       sEmail: this.state.sEmail
     })
-    .then(function (response) {
+    .then((response) => {
+      this.setState({sEmail: '', sEmailPlaceholder: 'thank you!', sSubmitButtonText: 'thank you!', bEmailFieldsDisabled: true});
       console.log(response);
     })
-    .catch(function (error) {
+    .catch((error) => {
+      this.setState({sEmail: '', sEmailPlaceholder: 'Unknown error!', sSubmitButtonText: 'try again'});
       console.log(error);
     });
   }
@@ -89,13 +99,13 @@ class App extends Component {
           </div>
         </div>
         <div className="title">
-          <h1>Charge.<br />The<br />world's<br />first<br />keyboard<br />that<br />charges itself<br />while<br />you<br />type.</h1><br />Interested?<br />Leave your email.<br/>We'll email you only once:<br />when we launch.<br /><br />
+          <h1><span className="neon">Charge.</span><br />The<br />world's<br />first<br />keyboard<br />that<br />charges itself<br />while<br />you<br />type.</h1><br />Interested?<br />Leave your email.<br/>We'll email you only once:<br />when we launch.<br /><br />
           <div className="wrapper">
             <form onKeyDown={this.handleKeyDown} onSubmit={this.handleSubmit}>
-              <div className="group"><input type="text" required="required" placeholder="your_email@email.com" name="sEmail" autoComplete="true" onChange={this.handleChange} value={this.state.sEmail}/><span className="highlight" /><span className="bar" /></div>
+              <div className="group"><input disabled={this.state.bEmailFieldsDisabled} type="text" required="required" placeholder={this.state.sEmailPlaceholder} name="sEmail" autoComplete="true" onChange={this.handleChange} value={this.state.sEmail}/><span className="highlight" /><span className="bar" /></div>
             </form>
             <br />
-            <button className="btn btn-submit" type="submit" onClick={this.handleSubmit}>submit</button>
+            <button disabled={this.state.bEmailFieldsDisabled} className="btn btn-submit" type="submit" onClick={this.handleSubmit}>{this.state.sSubmitButtonText}</button>
           </div>
         </div>
         <br/>
