@@ -2,7 +2,7 @@
 
 The charge keyboard is the worlds first self-charging wireless mechanical keyboard. Never put new batteries in your keyboard ever again.
 
-# Thanks
+# Thanks & Credits
 
 - create-react-app
 - Apple Keyboard CSS ()[]
